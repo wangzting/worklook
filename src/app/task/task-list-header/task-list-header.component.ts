@@ -27,6 +27,6 @@ export class TaskListHeaderComponent implements OnInit {
     this.delAllTask.emit();
   }
   public onEditList() {
-    this.editTask.emit()
+    this.editTask.emit();
   }
 }

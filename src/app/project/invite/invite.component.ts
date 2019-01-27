@@ -16,7 +16,7 @@ export class InviteComponent {
       id: '2',
       name: 'aaa'
     },
-  ]
+  ];
   constructor() {
 
   }

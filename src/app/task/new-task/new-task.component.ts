@@ -21,7 +21,7 @@ export class NewTaskComponent implements OnInit {
       label: '普通',
       value: '3'
     },
-  ]
+  ];
   public title: string;
   constructor(
     @Inject(MAT_DIALOG_DATA)

@@ -1,10 +1,11 @@
 import { SelfValidators } from './../../common/validators/validators';
-import { Project } from 'src/app/domain/model';
+
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit, Inject, ChangeDetectionStrategy } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 
 import { Observable } from 'rxjs';
+import { Project } from 'src/app/common/domain/model';
 
 @Component({
   selector: 'app-new-project',

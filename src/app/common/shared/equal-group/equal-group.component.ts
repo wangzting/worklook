@@ -18,7 +18,7 @@ export class EqualGroupComponent implements DoCheck, OnInit {
   get errorShowFlag() {
     return !this.inputFormGroup.valid &&
       this.inputFormGroup.errors &&
-      Object.keys(this.inputFormGroup.errors).includes('equalInGroup')
+      Object.keys(this.inputFormGroup.errors).includes('equalInGroup');
   }
   // 错误信息
   get errorInfo() {

@@ -142,7 +142,7 @@ export class AgeInputComponent implements OnInit, ControlValueAccessor {
           return {
             from: 'birth',
             dateOfBirth: format(birth, 'YYYYMMDD')
-          }
+          };
         }
         )
     );
@@ -153,7 +153,7 @@ export class AgeInputComponent implements OnInit, ControlValueAccessor {
           return {
             from: 'age',
             dateOfBirth: this.toDate({age: _num, unit: _unit})
-          }
+          };
         }
         )
       );
@@ -164,12 +164,12 @@ export class AgeInputComponent implements OnInit, ControlValueAccessor {
       (dateValue: DateValue) => {
         this.dateOfBirth = dateValue.dateOfBirth;
         if (dateValue.from === 'birth') {
-          console.log(dateValue.dateOfBirth)
+          console.log(dateValue.dateOfBirth);
         } else {
-          console.log(dateValue.dateOfBirth)
+          console.log(dateValue.dateOfBirth);
         }
       }
-    )
+    );
   }
 
   /**

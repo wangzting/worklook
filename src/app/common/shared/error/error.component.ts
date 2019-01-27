@@ -1,6 +1,6 @@
-import { SelfForm } from './../../common/implements/selfForm';
-import { ErrorInfo } from './../../common/validators/error.type';
 import { Component, Input } from '@angular/core';
+import { SelfForm } from '../../implements/selfForm';
+import { ErrorInfo } from '../../validators/error.type';
 
 @Component({
   selector: 'app-error',
@@ -21,7 +21,7 @@ export class ErrorComponent implements SelfForm {
    */
   public inputCheck() {
     if (!(this.errorInfo instanceof ErrorInfo)) {
-      throw new Error('ErrorComponent的参数不正确。')
+      throw new Error('ErrorComponent的参数不正确。');
     }
   }
 }

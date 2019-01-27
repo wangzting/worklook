@@ -1,9 +1,10 @@
-import { Quote } from './../../domain/model';
 import { SelfValidators } from './../../common/validators/validators';
 import { Component, OnInit } from '@angular/core';
 
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-import { QuoteService } from 'src/app/services/quote.service';
+import { Quote } from 'src/app/common/domain/model';
+import { QuoteService } from 'src/app/common/services/quote.service';
+
 
 @Component({
   selector: 'app-login',

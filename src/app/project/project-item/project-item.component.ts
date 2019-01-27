@@ -1,6 +1,6 @@
-import { Project } from './../../domain/model';
 import { Component, Input, Output, EventEmitter, HostBinding, HostListener, ChangeDetectionStrategy } from '@angular/core';
-import { cardAnim } from 'src/app/anim/card.anim';
+import { cardAnim } from 'src/app/common/anim/card.anim';
+import { Project } from 'src/app/common/domain/model';
 
 @Component({
   selector: 'app-project-item',

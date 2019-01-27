@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, HostListener, ChangeDetectionStrategy } from '@angular/core';
-import { itemAnim } from 'src/app/anim/item.anim';
-import { TaskVM } from 'src/app/domain/model';
+import { itemAnim } from 'src/app/common/anim/item.anim';
+import { TaskVM } from 'src/app/common/domain/model';
+
 @Component({
   selector: 'app-task-item',
   templateUrl: './task-item.component.html',

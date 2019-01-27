@@ -5,11 +5,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
-import { SharedModule } from './shared';
-import { CoreModule } from './core';
 import { ProjectModule } from './project/project.module';
 import { TaskModule } from './task/task.module';
-import { ChipsListComponent } from './shared/chips-list/chips-list.component';
+import { ChipsListComponent } from './common/shared/chips-list/chips-list.component';
+import { SharedModule } from './common/shared';
+import { CoreModule } from './common/core';
 
 @NgModule({
   declarations: [

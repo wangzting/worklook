@@ -1,9 +1,10 @@
 import { LoginComponent } from './login/login.component';
-import { SharedModule } from './../shared/index';
+
 import { LoginRoutingModule } from './login-routing.module';
 import { NgModule } from '@angular/core';
 import { RegisterComponent } from './register/register.component';
-import { ServicesModule } from '../services/services.module';
+import { SharedModule } from '../common/shared';
+import { ServicesModule } from '../common/services/services.module';
 
 @NgModule({
   imports: [

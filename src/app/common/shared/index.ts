@@ -33,8 +33,8 @@ import { EqualGroupComponent } from './equal-group/equal-group.component';
 import { CombatInputComponent } from './combat/combat-input/combat-input.component';
 import { SelfInputComponent } from './self-defining/self-input/self-input.component';
 import { AgeInputComponent } from './age-input/age-input.component';
-import { DirectivesModule } from '../common/directives';
-import { PipeModule } from '../common/pipes';
+import { DirectivesModule } from '../directives';
+import { PipeModule } from '../pipes';
 
 const material = [
   MatSidenavModule,

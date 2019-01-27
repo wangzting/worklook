@@ -1,8 +1,8 @@
-import { SelfForm } from './../../../common/implements/selfForm';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor, ControlContainer, AbstractControl } from '@angular/forms';
 import { Component, Input, OnInit, forwardRef, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { ErrorInfo } from 'src/app/common/validators/error.type';
 import { ValidatorsType } from 'src/app/common/validators/validators.type';
+import { SelfForm } from 'src/app/common/implements/selfForm';
 
 export const COMPONENT_NAME_VALUE_ACCESSOR: any = {
   provide: NG_VALUE_ACCESSOR,

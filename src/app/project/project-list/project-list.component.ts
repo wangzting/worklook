@@ -1,12 +1,7 @@
 import {
   ActivatedRoute
 } from '@angular/router';
-import {
-  ProjectService
-} from './../../services/project.service';
-import {
-  ConfirmDialogComponent
-} from './../../shared/confirm-dialog/confirm-dialog.component';
+
 import {
   InviteComponent
 } from './../invite/invite.component';
@@ -15,12 +10,14 @@ import {
 } from './../new-project/new-project.component';
 import { Component, Input, OnInit, HostBinding, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material';
-import { slideToRight } from 'src/app/anim/router.anim';
-import { listAnimation } from 'src/app/anim/list.anim';
-import { Project } from 'src/app/domain/model';
 
 import { Observable, range } from 'rxjs';
 import { filter, map, reduce, take, switchMap, concat, last } from 'rxjs/operators';
+import { slideToRight } from 'src/app/common/anim/router.anim';
+import { listAnimation } from 'src/app/common/anim/list.anim';
+import { Project } from 'src/app/common/domain/model';
+import { ProjectService } from 'src/app/common/services/project.service';
+import { ConfirmDialogComponent } from 'src/app/common/shared/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-project-list',

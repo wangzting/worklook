@@ -1,6 +1,6 @@
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { Component, OnInit, Inject, ChangeDetectionStrategy } from '@angular/core';
-import { TaskList } from 'src/app/domain/model';
+import { TaskList } from 'src/app/common/domain/model';
 
 @Component({
   selector: 'app-copy-task',
