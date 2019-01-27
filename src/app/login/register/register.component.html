@@ -1,0 +1,68 @@
+<form class="form" [formGroup]="form" (ngSumbit)="onSubmit(form, $event)">
+  <mat-card class="card">
+    <mat-card-header>
+      <mat-card-title>注册：</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+
+      <!-- 电子邮件 STR -->
+      <my-input
+        label="邮件"
+        type="text"
+        placeholder="您的电子邮件"
+        formControlName="email">
+      </my-input>
+      <!-- 电子邮件 END -->
+
+      <!-- 姓名 STR -->
+      <my-input
+        label="姓名"
+        placeholder="您的姓名"
+        type="text"
+        formControlName="name">
+      </my-input>
+      <!-- 姓名 END -->
+
+      <app-equal-group
+        formGroupName="passwd">
+        <!-- 密码 STR -->
+        <my-input
+          label="密码 "
+          type="password"
+          placeholder="您的密码"
+          formControlName="password"
+          hint="注意不要输错奥！">
+        </my-input>
+        <!-- 密码 END -->
+
+        <!-- 重复密码 STR -->
+        <my-input
+          label="重复密码 "
+          type="password"
+          placeholder="为避免失误请再次输入"
+          formControlName="repeat"
+          hint="注意不要输错奥！">
+        </my-input>
+        <!-- 重复密码 END -->
+      </app-equal-group>
+
+      <app-image-list-select
+        [useSvgIcon]="true"
+        [cols]="6"
+        [title]="'选择头像：'"
+        [items]="items"
+        formControlName="avatar">
+      </app-image-list-select>
+
+      <!-- 要想触发ngSubmit事件，必须把type修改为submit,不能是button类型,或者在button直接绑定ckick事件 -->
+      <button mat-raised-button type="submit" (click)="onSubmit(form, $event)">注册</button>
+    </mat-card-content>
+    <mat-card-actions class="text-right">
+      <p>已有账户？<a href="">登录</a></p>
+      <p>忘记密码？<a href="">找回</a></p>
+    </mat-card-actions>
+  </mat-card>
+  <div class="full-width control-padding">
+    <age-input formControlName="dateOfBirth"></age-input>
+  </div>
+</form>

@@ -1,0 +1,27 @@
+<form [formGroup]="forms">
+    <h3 mat-dialog-title>{{title}}</h3>
+    <div mat-dialog-content>
+        <my-input
+            label="项目名称"
+            placeholder="项目名称"
+            type="text"
+            formControlName="name">
+        </my-input>
+        <my-input
+            label="项目描述"
+            placeholder="项目描述"
+            type="text"
+            formControlName="desc">
+        </my-input>
+        <app-image-list-select
+            [useSvgIcon]="false"
+            [cols]="8"
+            [items]="items$ | async"
+            formControlName="coverImg">
+        </app-image-list-select>
+    </div>
+    <div mat-dialog-actions>
+        <button type="button" mat-raised-button color="primary" (click)="onClick()">保存</button>
+        <button type="button" mat-dialog-close mat-raised-button>关闭</button>
+    </div>
+</form>

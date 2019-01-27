@@ -1,0 +1,25 @@
+<div class="task-lists">
+  <app-task-list *ngFor="let taskList of lists" appDroppable dragEnterClass="drag-enter" class="list-container">
+    <app-task-list-header
+      [header]="taskList.name"
+      (newTask)="handleAddTask(taskList.id)"
+      (moveAllTasks)="handleMoveList(taskList.id)"
+      (delAllTask)="handleDelList(taskList.id)"
+      (editTask)="handleEditList(taskList.id)"
+    ></app-task-list-header>
+
+    <app-quick-task
+      (quickTask)="handleQuickTask($event)">
+    </app-quick-task>
+
+    <app-task-item *ngFor="let task of taskList.tasks"
+      [item]="task"
+      (taskClick)="handleUpdateTask(task)"
+    ></app-task-item>
+
+  </app-task-list>
+</div>
+
+<button mat-fab (click)="openNewList()" type="button" class="fab-button">
+  <mat-icon>add</mat-icon>
+</button>

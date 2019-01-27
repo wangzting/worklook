@@ -1,0 +1,45 @@
+<form class="form" [formGroup]="form" (ngSubmit)="onSubmit(form, $event)">
+  <mat-card class="card">
+    <mat-card-header>
+      <mat-card-title>登陆：</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+
+      <!-- 邮箱 STR -->
+      <cb-input
+        label="邮箱"
+        placeholder="您的邮箱"
+        cbFormControlName="email">
+      </cb-input>
+      <!-- 邮箱 END -->
+
+      <!-- 密码 STR -->
+      <my-input
+        label="密码"
+        placeholder="密码"
+        type="password"
+        formControlName="password">
+      </my-input>
+      <!-- 密码 END -->
+
+      <!-- 要想触发ngSubmit事件，必须把type修改为submit,不能是button类型,或者在button直接绑定ckick事件 -->
+      <!-- TODO -->
+      <!-- <button mat-raised-button type="submit" [disabled]="!form.valid">登陆</button> -->
+      <button mat-raised-button type="submit">登陆</button>
+    </mat-card-content>
+    <mat-card-actions class="text-right">
+      <p>还没有账户？<a routerLink="/register">注册</a></p>
+      <p>忘记密码？<a href="">找回</a></p>
+    </mat-card-actions>
+  </mat-card>
+  <mat-card class="card">
+    <mat-card-header>
+      <mat-card-title> 佳句</mat-card-title>
+      <mat-card-subtitle>{{quote?.cn}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="quote?.pic">
+    <mat-card-content>
+      {{quote?.en}}
+    </mat-card-content>
+  </mat-card>
+</form>

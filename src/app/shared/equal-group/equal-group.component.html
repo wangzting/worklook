@@ -1,0 +1,7 @@
+<div [formGroup]="inputFormGroup">
+  <ng-content></ng-content>
+  <app-error
+    *ngIf="errorShowFlag"
+    [errorInfo]="errorInfo"
+  ></app-error>
+</div>

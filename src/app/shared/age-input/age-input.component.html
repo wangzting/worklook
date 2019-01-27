@@ -1,0 +1,32 @@
+<div [formGroup]="forms" class="age-input">
+  <div>
+    <mat-form-field>
+      <input matInput [matDatepicker]="birthPicker" type="text" placeholder="出生日期" formControlName="birthday" >
+      <mat-datepicker-toggle matSuffix [for]="birthPicker">
+        <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+      </mat-datepicker-toggle>
+      <mat-error>日期不正确</mat-error>
+    </mat-form-field>
+    <mat-datepicker [touchUi]="true" [disabled]="false" #birthPicker></mat-datepicker>
+  </div>
+  <ng-container formGroupName="age">
+    <div class="age-num">
+      <!-- 年龄 STR -->
+      <my-input
+        label="年龄"
+        placeholder="年龄"
+        type="number"
+        formControlName="ageNum">
+      </my-input>
+      <!-- 年龄 END -->
+    </div>
+    <div>
+      <mat-button-toggle-group formControlName="ageUnit">
+        <mat-button-toggle *ngFor="let unit of ageUnits" [value]="unit.value">
+          {{ unit.label }}
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+    <mat-error class="mat-body-2" *ngIf="forms.get('age').hasError('ageInvalid')">年龄或单位不正确</mat-error>
+  </ng-container>
+</div>

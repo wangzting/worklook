@@ -1,0 +1,14 @@
+<mat-form-field class="full-width">
+  <input
+    matInput
+    [type]="type"
+    [placeholder]="placeholder"
+    [formControl]="cbFormControl"
+    (blur)="onBlur($event)"
+    (focus)="onFocus($event)">
+    <mat-hint align="start" *ngIf="hintShowFlag"><strong>{{hint}}</strong> </mat-hint>
+    <app-error
+      *ngIf="errorShowFlag"
+      [errorInfo]="errorInfo"
+    ></app-error>
+</mat-form-field>
