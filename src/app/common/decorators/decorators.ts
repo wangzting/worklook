@@ -27,7 +27,7 @@ export function ValidatorCondition(target: any, name: string, descriptor: any) {
     }
     // 调用原方法
     return originMethod.apply(this, args);
-  }
+  };
   // 返回编辑后的属性描述对象
-  return descriptor
+  return descriptor;
 }

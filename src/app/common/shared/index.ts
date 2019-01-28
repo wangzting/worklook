@@ -24,6 +24,7 @@ import {
   MatNativeDateModule,
   MatSelectModule,
   MatButtonToggleModule,
+  MatChipsModule
 } from '@angular/material';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -35,6 +36,7 @@ import { SelfInputComponent } from './self-defining/self-input/self-input.compon
 import { AgeInputComponent } from './age-input/age-input.component';
 import { DirectivesModule } from '../directives';
 import { PipeModule } from '../pipes';
+import { ChipsListComponent } from './chips-list/chips-list.component';
 
 const material = [
   MatSidenavModule,
@@ -55,6 +57,7 @@ const material = [
   MatNativeDateModule,
   MatSelectModule,
   MatButtonToggleModule,
+  MatChipsModule
 ];
 
 const commonModule = [
@@ -80,6 +83,7 @@ const commonModule = [
     EqualGroupComponent,
     SelfInputComponent,
     AgeInputComponent,
+    ChipsListComponent
   ],
   declarations: [
     ConfirmDialogComponent,
@@ -89,6 +93,7 @@ const commonModule = [
     EqualGroupComponent,
     SelfInputComponent,
     AgeInputComponent,
+    ChipsListComponent
   ],
   entryComponents: [
     ConfirmDialogComponent

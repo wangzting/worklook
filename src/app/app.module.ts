@@ -7,14 +7,12 @@ import { AppComponent } from './app.component';
 
 import { ProjectModule } from './project/project.module';
 import { TaskModule } from './task/task.module';
-import { ChipsListComponent } from './common/shared/chips-list/chips-list.component';
 import { SharedModule } from './common/shared';
 import { CoreModule } from './common/core';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ChipsListComponent,
   ],
   imports: [
     BrowserModule,
