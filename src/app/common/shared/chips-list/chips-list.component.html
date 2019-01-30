@@ -10,7 +10,7 @@
         {{member.name}}
         <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
       </mat-chip>
-      <input
+<!--       <input
         #fruitInput
         [placeholder]="placeholderText"
         formControlName="memberSearch"
@@ -18,11 +18,15 @@
         [matChipInputFor]="chipList"
         [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
         [matChipInputAddOnBlur]="addOnBlur"
-        (matChipInputTokenEnd)="add($event)">
+        (matChipInputTokenEnd)="add($event)"> -->
+        <input
+          [placeholder]="placeholderText"
+          formControlName="memberSearch"
+          [matAutocomplete]="auto">
     </mat-chip-list>
   </mat-form-field>
 </div>
-<mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+<mat-autocomplete #auto="matAutocomplete" (optionSelected)="handleMemberSelection($event)" [displayWith]="displayUser">
   <mat-option *ngFor="let item of memberResults$ | async" [value]="item">
     {{item.name}}
   </mat-option>

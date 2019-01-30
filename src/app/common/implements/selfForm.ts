@@ -7,5 +7,5 @@
  */
 export interface SelfForm {
   // 输入属性check
-  inputCheck: () => void
+  inputCheck: () => void;
 }

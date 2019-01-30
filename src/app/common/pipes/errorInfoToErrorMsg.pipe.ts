@@ -34,7 +34,7 @@ export class ErrorInfoToErrorMsg implements PipeTransform {
       case ValidatorsType.maxLength:
         return `${errorInfo.label}${this.MSG_MAXLENGTH[0]}${errorInfo.maxLength}${this.MSG_MAXLENGTH[1]}`;
       case ValidatorsType.minAndMaxLength:
-        return `${errorInfo.label}${this.MSG_MINANDMAXLENGTH[0]}${errorInfo.minLength}${this.MSG_MINANDMAXLENGTH[1]}${errorInfo.maxLength}${this.MSG_MINANDMAXLENGTH[2]}`
+        return `${errorInfo.label}${this.MSG_MINANDMAXLENGTH[0]}${errorInfo.minLength}${this.MSG_MINANDMAXLENGTH[1]}${errorInfo.maxLength}${this.MSG_MINANDMAXLENGTH[2]}`;
       case ValidatorsType.number:
         return `${errorInfo.label}${this.MSG_NUMBER}`;
       case ValidatorsType.equalInGroup:

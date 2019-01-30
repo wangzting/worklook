@@ -1,6 +1,6 @@
 import { UserService } from './../../services/user.service';
 import { SelfForm } from './../../implements/selfForm';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, ControlValueAccessor } from '@angular/forms';
 import { Component, OnInit, Input } from '@angular/core';
 
 import { Observable } from 'rxjs';
@@ -13,20 +13,31 @@ import { COMMA, ENTER } from '@angular/cdk/keycodes';
     templateUrl: './chips-list.component.html',
     styleUrls: ['./chips-list.component.scss']
 })
-export class ChipsListComponent implements OnInit, SelfForm {
+export class ChipsListComponent implements OnInit, ControlValueAccessor, SelfForm {
 
     visible = true;
     selectable = true;
     removable = true;
     addOnBlur = true;
     separatorKeysCodes: number[] = [ENTER, COMMA];
+    // 是否是多个值
     @Input() multiple = true;
     @Input() label = '添加/修改成员';
     @Input() placeholderText = '请输入成员 email';
-    items: User[] = [];
+
     // 表单控件
     public forms: FormGroup;
 
+    // 与外部表单直接相关的值
+    private _items: User[] = [];
+
+    get items(): User[] {
+        return this._items;
+    }
+    set items(value: User[]) {
+        this._items = value;
+        this.itemsChange();
+    }
     // 候选项
 
     memberResults = [
@@ -74,6 +85,13 @@ export class ChipsListComponent implements OnInit, SelfForm {
         }
     ];
     memberResults$: Observable<User[]>;
+
+    // 这里是做一个空函数体，真正使用的方法在 registerOnChange 中
+    // 由框架注册，然后我们使用它把变化发回表单
+    // 注意，和 EventEmitter 尽管很像，但发送回的对象不同
+    private propagateChange = (_: any) => { };
+    private propagateTouch = (_: any) => { };
+
     /**
      *Creates an instance of ChipsListComponent.
      * @param {FormBuilder} fb
@@ -104,6 +122,16 @@ export class ChipsListComponent implements OnInit, SelfForm {
     }
 
     /**
+     * 表单内部值改变
+     *
+     * @private
+     * @memberof ChipsListComponent
+     */
+    private itemsChange() {
+        // 把值发送给外部表单
+        this.propagateChange(this.items);
+    }
+    /**
      * 根据输入检索存在的用户
      *
      * @param {Observable<string>} obs
@@ -120,7 +148,13 @@ export class ChipsListComponent implements OnInit, SelfForm {
         );
 
     }
-    // 设置初始值
+
+    /**
+     * 设置初始值
+     * 把form表单的值设置给控件
+     * @param {User[]} obj
+     * @memberof ChipsListComponent
+     */
     public writeValue(obj: User[]) {
         if (obj && this.multiple) {
             const userEntities = obj.reduce((entities, user) => {
@@ -135,15 +169,26 @@ export class ChipsListComponent implements OnInit, SelfForm {
         }
     }
 
-    // 当表单控件值改变时，函数 fn 会被调用
-    // 这也是我们把变化 emit 回表单的机制
+    /**
+     * 当表单控件值改变时，函数 fn 会被调用
+     * 这也是我们把变化 emit 回表单的机制
+     * @param {*} fn
+     * @memberof ChipsListComponent
+     */
     public registerOnChange(fn: any) {
         this.propagateChange = fn;
     }
-    // 这里是做一个空函数体，真正使用的方法在 registerOnChange 中
-    // 由框架注册，然后我们使用它把变化发回表单
-    // 注意，和 EventEmitter 尽管很像，但发送回的对象不同
-    private propagateChange = (_: any) => { };
+
+    /**
+     * 把touch事件发送给form表单
+     *
+     * @param {*} fn
+     * @memberof ChipsListComponent
+     */
+    public registerOnTouched(fn: any): void {
+        this.propagateTouch = fn;
+    }
+
     /**
      * 输入属性check
      *
@@ -155,16 +200,27 @@ export class ChipsListComponent implements OnInit, SelfForm {
     displayUser(user: User): string {
         return user ? user.name : '';
     }
+
+    /**
+     * 选择候选项中的值
+     *
+     * @param {User} user
+     * @returns
+     * @memberof ChipsListComponent
+     */
     handleMemberSelection(user: User) {
+        // 选中的值已经被选择
         if (this.items.map(u => u.id).indexOf(user.id) !== -1) {
             return;
         }
+        // 如果是多个值
         if (this.multiple) {
             this.items = [...this.items, user];
         } else {
+            // 是单个值
             this.items = [user];
         }
-        this.forms.patchValue({ memberSearch: user.name });
-        this.propagateChange(this.items);
+        // 把选中的值反应到输入框中
+        this.forms.get('memberSearch').setValue(user.name);
     }
 }
