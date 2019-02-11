@@ -13,7 +13,29 @@
       "name": "Project Manager"
     }
   ],
+  "family": [
+    {
+      "name": "西门本不吹雪",
+      "families": ["独孤求败", "梅超风"]
+    }
+  ],
   "users": [
+    {
+      "password": "wp123456",
+      "name": "西门本不吹雪",
+      "avatar": "avatars:svg-1",
+      "email": "wpcfan@163.com",
+      "id": "1",
+      "projectIds": [
+        "Sk2HaTagb",
+        "Hya1moGb-"
+      ],
+      "roleIds": [
+        0,
+        1,
+        2
+      ]
+    },
     {
       "password": "wp123456",
       "name": "王芃",
